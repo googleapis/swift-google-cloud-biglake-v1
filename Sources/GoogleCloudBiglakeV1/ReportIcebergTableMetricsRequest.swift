@@ -15,17 +15,21 @@
 // limitations under the License.
 
 import Foundation
+import GoogleApi
 import GoogleCloudWkt
 
-/// The request message for the `DeleteIcebergNamespace` API.
-public struct DeleteIcebergNamespaceRequest: Codable, Equatable, GoogleCloudWkt._AnyPackable,
+/// The request message for the `ReportIcebergTableMetrics` API.
+public struct ReportIcebergTableMetricsRequest: Codable, Equatable, GoogleCloudWkt._AnyPackable,
   Sendable
 {
-  /// Required. Iceberg namespace to delete in the format:
-  /// `projects/{project_id}/catalogs/{catalog_id}/namespaces/{namespace}`.
+  /// Required. Table to report metrics for in the format:
+  /// `projects/{project_id}/namespaces/{namespace}/tables/{table}`.
   public var name: Swift.String = Swift.String()
 
-  /// Initialize a new instance of `DeleteIcebergNamespaceRequest`.
+  /// Required.
+  public var httpBody: GoogleApi.HttpBody? = nil
+
+  /// Initialize a new instance of `ReportIcebergTableMetricsRequest`.
   public init() {}
 
   /// Use `config` to return a new instance of this object, with some fields updated.
@@ -33,7 +37,7 @@ public struct DeleteIcebergNamespaceRequest: Codable, Equatable, GoogleCloudWkt.
   /// Commonly used to initialize the value, for example:
   ///
   /// ```
-  /// let value = DeleteIcebergNamespaceRequest().with { $0.name = ... }
+  /// let value = ReportIcebergTableMetricsRequest().with { $0.name = ... }
   /// ```
   public func with(_ config: (inout Self) throws -> Swift.Void) rethrows -> Self {
     var copy = self
@@ -42,7 +46,7 @@ public struct DeleteIcebergNamespaceRequest: Codable, Equatable, GoogleCloudWkt.
   }
 
   public static var _anyTypeUrl: Swift.String {
-    return "type.googleapis.com/google.cloud.biglake.v1.DeleteIcebergNamespaceRequest"
+    return "type.googleapis.com/google.cloud.biglake.v1.ReportIcebergTableMetricsRequest"
   }
   public init(fromAny any: GoogleCloudWkt.`Any`) throws {
     self = try GoogleCloudWkt._slowAnyDeserialize(Self.self, from: any)
